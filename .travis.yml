@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.2"
+  - "3.3"
+  - "3.4"
+env:
+  - DJANGO_VERSION=1.7
+install:
+  - "pip install -r requirements-dev.txt"
+services:
+  - elasticsearch
+script:
+  - "py.test --cov=djelastic"
+after-success:
+  - coveralls
